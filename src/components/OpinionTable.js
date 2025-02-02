@@ -9,26 +9,28 @@ const OpinionTable = () => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [posts, setPosts] = React.useState([]);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const fetchPosts = async () => {
-    const url = `https://docenmyztm-worker.santosubito.workers.dev/api/verifiedposts`;
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-      }
 
-      const data = await response.json();
-      setPosts(data);
-
-      console.log(posts);
-      setIsLoading(false);
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
   React.useEffect(() => {
-    fetchPosts();
-  }, [fetchPosts]);
+    const fetchPosts = async () => {
+      const url = `https://docenmyztm-worker.santosubito.workers.dev/api/verifiedposts`;
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
+        }
+  
+        const data = await response.json();
+        setPosts(data);
+  
+        console.log(posts);
+        setIsLoading(false);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+    setTimeout(() => {fetchPosts();}, 5000);
+    
+  }, []);
   const Post = ({ author, text, isVerified }) => {
     return (
       <Box sx={{ minWidth: 275, margin: "15px" }}>

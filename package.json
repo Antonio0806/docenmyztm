@@ -2,7 +2,7 @@
   "name": "docenmyztm",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://antonio0806.github.io/docenmyztm",
+  "homepage": "https://antonio0806.github.io/docenmyztm/#",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -12,6 +12,7 @@
     "gh-pages": "^6.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.5",
     "react-scripts": "5.0.1"
   },
   "scripts": {

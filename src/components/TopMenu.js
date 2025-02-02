@@ -17,14 +17,12 @@ const TopMenu = () => {
           <Typography
             variant="h5"
             style={{ verticalAlign: "middle", margin: "auto" }}
+            
           >
-            Kocham ZTM moje ulubione przedsiębiorstwo fr fr
+            Strona na której możemy docenić pracę ZTM i uświadomić sobie jak ułatwiają nam codzienne funkcjonowanie
           </Typography>
         </Grid2>
         <Grid2 item xs={1} sx={{ textAlign: "center" }}>
-          <Button aria-label="Admin Panel">
-            Admin
-          </Button>
         </Grid2>
       </Grid2>
     </div>
