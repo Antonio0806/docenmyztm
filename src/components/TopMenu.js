@@ -1,8 +1,7 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Grid2 from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
-import { Person } from "@mui/icons-material";
+import Button from "@mui/material/IconButton";
 const TopMenu = () => {
   return (
     <div
@@ -23,9 +22,9 @@ const TopMenu = () => {
           </Typography>
         </Grid2>
         <Grid2 item xs={1} sx={{ textAlign: "center" }}>
-          <IconButton aria-label="Admin Panel">
-            <Person />
-          </IconButton>
+          <Button aria-label="Admin Panel">
+            Admin
+          </Button>
         </Grid2>
       </Grid2>
     </div>
