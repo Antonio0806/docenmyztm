@@ -37,12 +37,11 @@ const AboutSection = () => {
             height: "100%",
           }}
         >
-          <Typography variant="h2" sx={{ fontWeight: 900 }}>
+          <Typography variant="h2" sx={{ fontWeight: 900, marginLeft: '15px', marginTop: '15px' }}>
             Kim jesteśmy?
           </Typography>
-          <Typography variant="p">
-            Nie mam pomysłu co tutaj napisać więc tak ogólnie to
-            alsjdfalkjdfla;ksjdfaksjdf;lasjdfajsd;lfajsdfkjsd;lfajsdfasdfgyafsgkahjgfhjcvnbzcvxkjhagdvkhajgdfljagdsfhagdsa
+          <Typography variant="p" sx={{marginLeft: '15px', marginTop: '15px'}}>
+            Jesteśmy drużyną wędrowniczą działającą na Ursynowie
           </Typography>
         </Box>
       </Grid2>

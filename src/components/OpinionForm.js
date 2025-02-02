@@ -9,9 +9,8 @@ const OpinionForm = () => {
   const [postText, setPostText] = React.useState("");
   const [nicknameText, setNicknameText] = React.useState("Anonim");
 
-  const onPostTextChange = (e) => setPostText(e.target.value);
-  const onNicknameTextChange = (e) => setNicknameText(e.target.value);
   const dialogboxstyle = {
+    marginTop: "25px",
     marginLeft: "auto",
     marginRight: "auto",
     marginBottom: "20px",
@@ -23,6 +22,29 @@ const OpinionForm = () => {
     boxShadow: 24,
     p: 4,
   };
+ const submitPost = async (author, text) => {
+    const forbiddenCharArray = ['/', '[', '&', '#', '?', '=', ']', '(', ')'];
+    function containsChars(str, charArray) {
+      return charArray.some(char => str.includes(char));
+    }
+    if(!containsChars(author, forbiddenCharArray) && !containsChars(text, forbiddenCharArray)) {
+      const url = `https://docenmyztm-worker.santosubito.workers.dev/api/addpost?author=${author}&text=${text}`;
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+  
+      const json = await response.json();
+      console.log(json);
+    } catch (error) {
+      console.error(error.message);
+    }
+    } else {
+      console.log('uuuu niegrzeczny, używasz złych znaczków')
+    }
+    
+  }
   return (
     <Box sx={dialogboxstyle}>
       <Typography id="modal-modal-title" variant="h6" component="h2">
@@ -41,6 +63,7 @@ const OpinionForm = () => {
             variant="outlined"
             onChange={(e) => setNicknameText(e.target.value)}
             value={nicknameText}
+            slotProps={{htmlInput: {maxLength: 15}}}
           />
 
           <TextField
@@ -51,14 +74,18 @@ const OpinionForm = () => {
             variant="outlined"
             onChange={(e) => setPostText(e.target.value)}
             value={postText}
+            slotProps={{htmlInput: {maxLength: 512}}}
+            sx={{marginTop: '5px', marginBottom: '5px'}}
           />
+          <Divider/>
+          <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>Możliwe że bedziesz musiał/a odświeżyć stronę zanim zobaczysz swój wpis</Typography>
         </Grid2>
         <Grid2 size={12}>
           <Button
             variant="contained"
             sx={{ marginTop: "10px" }}
             onClick={() => {
-              console.log(nicknameText, postText);
+              submitPost(nicknameText, postText)
             }}
           >
             Dodaj wpis
